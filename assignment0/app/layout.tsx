@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+
+// globals is styling for the entire website regardless of entry point
 import "./globals.css";
 
 export const metadata: Metadata = {

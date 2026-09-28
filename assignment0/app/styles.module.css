@@ -1,0 +1,19 @@
+.header{
+    font-size: 20px;
+    color: red
+}
+
+
+.scheduleTable {
+    border-collapse: collapse;
+}
+
+.scheduleTable th {
+    padding: 3px;
+    border: solid 2px pink;
+}
+
+.scheduleTable td {
+    border: solid 1px black;
+
+}
