@@ -17,7 +17,7 @@ export default async function Home() {
     <main>
       <Card>
         <Typography sx={{ m: 2, p: 3, color: "red" }} variant="h2" component="h3">
-          Hello world! Here's my API Key!
+          Here's a cool table about the planets!
         </Typography>
       </Card>
       <TableContainer>
