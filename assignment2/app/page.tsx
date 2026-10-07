@@ -1,11 +1,7 @@
-import { Box, Card, Typography, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from "@mui/material"
+import { Typography, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from "@mui/material"
 
-
-type Planet = {
-  name: string,
-  mass: number,
-  distance_light_year: number
-}
+import { Planet } from "@/types/planet"
+import DataTableBody from "@/components/dataTableBody"
 
 export default async function Home() {
 
@@ -15,11 +11,9 @@ export default async function Home() {
 
   return (
     <main>
-      <Card>
-        <Typography sx={{ m: 2, p: 3, color: "red" }} variant="h2" component="h3">
-          Here's a cool table about the planets!
-        </Typography>
-      </Card>
+      <Typography sx={{ m: 2, p: 3}} variant="h4">
+        Here's a cool table about the planets!
+      </Typography>
       <TableContainer>
         <Table>
           <TableHead>
@@ -29,17 +23,7 @@ export default async function Home() {
               <TableCell>Distance From Earth</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {
-              data.map((planet: Planet, i: number)=>(
-                <TableRow key={i}>
-                  <TableCell>{planet.name}</TableCell>
-                  <TableCell>{planet.mass}</TableCell>
-                  <TableCell>{planet.distance_light_year}</TableCell>
-                </TableRow>
-              ))
-            }
-          </TableBody>
+          <DataTableBody data={data}/>
         </Table>
       </TableContainer>
     </main>
