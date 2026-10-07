@@ -1,7 +1,8 @@
-import { Typography, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from "@mui/material"
+import { Typography, TableContainer, Table } from "@mui/material"
 
 import { Planet } from "@/types/planet"
 import DataTableBody from "@/components/dataTableBody"
+import DataTableHead from "@/components/dataTableHead"
 
 export default async function Home() {
 
@@ -16,13 +17,7 @@ export default async function Home() {
       </Typography>
       <TableContainer>
         <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Mass</TableCell>
-              <TableCell>Distance From Earth</TableCell>
-            </TableRow>
-          </TableHead>
+          <DataTableHead />
           <DataTableBody data={data}/>
         </Table>
       </TableContainer>
