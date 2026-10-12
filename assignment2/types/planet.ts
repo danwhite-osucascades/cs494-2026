@@ -4,5 +4,5 @@ export type Planet = {
   radius: number,
   distance_light_year: number,
   period: number,
-  temperature: string
+  temperature: number
 }

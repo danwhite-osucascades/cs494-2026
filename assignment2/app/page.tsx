@@ -14,7 +14,12 @@ export default async function Home() {
       <Typography sx={{ m: 2, p: 3}} variant="h4">
         Here's a cool table about the planets!
       </Typography>
-      <DataTable data={data}/>
+      {
+        data.length > 0 ? 
+        <DataTable data={data}/> :
+        <div>Loading...</div>
+      }
+      
     </main>
   );
 }
