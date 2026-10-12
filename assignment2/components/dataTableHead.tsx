@@ -14,7 +14,7 @@ export default function DataTableHead(props: { data: Planet[], setData: (data: P
 
     function sortByString(property: StringProperties): undefined {
         const tmpObj = JSON.parse(JSON.stringify(props.data))
-        const tmpArray = tmpObj.sort((a: Planet, b: Planet) => {
+        tmpObj.sort((a: Planet, b: Planet) => {
             const nameA = a[property].toUpperCase()
             const nameB = b[property].toUpperCase()
 
@@ -24,10 +24,8 @@ export default function DataTableHead(props: { data: Planet[], setData: (data: P
             return 0
         })
 
-        props.setData(tmpArray)
+        props.setData(tmpObj)
         setAscending(!ascending)
-
-        console.log(tmpArray)
     }
 
     function sortByNumber(property: NumberProperties) {
@@ -43,7 +41,6 @@ export default function DataTableHead(props: { data: Planet[], setData: (data: P
         props.setData(tmpObj)
         setAscending(!ascending)
     }
-
 
 
     return (
