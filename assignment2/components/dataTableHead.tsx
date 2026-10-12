@@ -1,6 +1,4 @@
-'use client'
-
-import { TableHead, TableRow, TableCell } from "@mui/material";
+import { TableHead, TableCell } from "@mui/material";
 
 import { StyledTableHeadRow } from "./styledComponents";
 

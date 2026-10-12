@@ -1,5 +1,3 @@
-'use client'
-
 import { TableBody, TableCell, TableRow } from "@mui/material";
 import { Planet } from "@/types/planet";
 import { StyledTableRow } from "./styledComponents";

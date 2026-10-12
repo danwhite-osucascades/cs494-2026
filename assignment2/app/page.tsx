@@ -1,8 +1,7 @@
-import { Typography, TableContainer, Table } from "@mui/material"
+import { Typography } from "@mui/material"
 
 import { Planet } from "@/types/planet"
-import DataTableBody from "@/components/dataTableBody"
-import DataTableHead from "@/components/dataTableHead"
+import DataTable from "@/components/dataTable"
 
 export default async function Home() {
 
@@ -10,19 +9,12 @@ export default async function Home() {
   const response = await fetch(url, {headers: {'X-Api-Key' : process.env.API_NINJA_KEY ?? "" }})
   const data: Planet[] = await response.json()
 
-  
-
   return (
     <main>
       <Typography sx={{ m: 2, p: 3}} variant="h4">
         Here's a cool table about the planets!
       </Typography>
-      <TableContainer>
-        <Table>
-          <DataTableHead />
-          <DataTableBody data={data}/>
-        </Table>
-      </TableContainer>
+      <DataTable data={data}/>
     </main>
   );
 }
