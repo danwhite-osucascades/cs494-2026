@@ -13,6 +13,7 @@ export const StyledTableRow = styled(TableRow)({
 export const StyledTableHeadRow = styled(TableRow)({
     "& .MuiTableCell-root": {
         backgroundColor: "#000",
-        color: "white"
+        color: "white",
+        fontWeight: "bold"
     }
 })

@@ -9,8 +9,11 @@ export default function DataTableHead() {
         <TableHead>
             <StyledTableHeadRow>
                 <TableCell>Name</TableCell>
-                <TableCell>Mass</TableCell>
+                <TableCell>Mass (Relative to Jupiter)</TableCell>
+                <TableCell>Radius</TableCell>
                 <TableCell>Distance From Earth</TableCell>
+                <TableCell>Orbital Period (Earth Days)</TableCell>
+                <TableCell>Temperature (K)</TableCell>
             </StyledTableHeadRow>
         </TableHead>
     )

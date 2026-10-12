@@ -12,7 +12,10 @@ export default function DataTableBody( props: { data: Planet[] }) {
                     <StyledTableRow key={i}>
                         <TableCell>{planet.name}</TableCell>
                         <TableCell>{planet.mass}</TableCell>
+                        <TableCell>{planet.radius}</TableCell>
                         <TableCell>{planet.distance_light_year}</TableCell>
+                        <TableCell>{planet.period}</TableCell>
+                        <TableCell>{planet.temperature}</TableCell>
                     </StyledTableRow>
                 ))
             }
