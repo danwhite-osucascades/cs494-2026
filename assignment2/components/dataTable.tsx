@@ -1,13 +1,13 @@
 'use client'
 
-import { TableContainer, Table, Box, TextField } from "@mui/material";
+import { TableContainer, Table, Box, TextField, Select, MenuItem } from "@mui/material";
 import DataTableBody from "./dataTableBody";
 import DataTableHead from "./dataTableHead";
-import { Planet } from "@/types/planet";
+import { Planet, DataNumberProperties } from "@/types/planet";
 
 import { useState, useEffect } from "react";
 
-import { filterObjectArrayByMinMax } from "@/utils/dataUtils";
+import { filterObjectArrayByMinMax, getMax } from "@/utils/dataUtils";
 
 
 export default function DataTable(props: { data: Planet[] }) {
@@ -16,13 +16,11 @@ export default function DataTable(props: { data: Planet[] }) {
     const [filteredData, setFilteredData] = useState<Planet[]>(props.data)
     const [min, setMin] = useState<string>("0")
 
+    const filterLabels: DataNumberProperties[] = ["mass", "radius"]
 
-    let tmpMax = 0
-    for (let i = 0; i < props.data.length; i++){
-        if (props.data[i].mass > tmpMax){
-            tmpMax = props.data[i].mass
-        }
-    }
+    const [filterLabel, setFilterLabel] = useState<DataNumberProperties>(filterLabels[0])
+
+    const tmpMax = getMax(data.map((planet)=>planet[filterLabel]))
 
     const [max, setMax] = useState<string>(String(tmpMax))
 
@@ -37,6 +35,16 @@ export default function DataTable(props: { data: Planet[] }) {
         <Box>
             <TextField type="text" value={min} onChange={(event)=>setMin(event.target.value)} />
             <TextField type="text" value={max} onChange={(event)=>setMax(event.target.value)} />
+            <Select
+                value={filterLabel}
+                onChange={(event)=>setFilterLabel(event.target.value)}
+            >
+                {
+                    filterLabels.map((value, i)=>(
+                        <MenuItem value={value} key={i}>{value}</MenuItem>
+                    ))
+                }
+            </Select>
             <TableContainer>
                 <Table>
                     <DataTableHead data={data} setData={setData} />

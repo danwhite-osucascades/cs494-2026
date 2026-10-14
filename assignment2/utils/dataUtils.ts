@@ -28,3 +28,14 @@ export function sortObjectArrayByNumber(property: DataNumberProperties, data: Pl
 export function filterObjectArrayByMinMax(property: DataNumberProperties, data: Planet[], min: number, max: number){
     return data.filter((planet)=>planet[property] >= min && planet[property] <= max)
 }
+
+export function getMax(numbers: number[]){
+    let tmpMax = 0
+    for (let i = 0; i < numbers.length; i++){
+        if (numbers[i] > tmpMax){
+            tmpMax = numbers[i]
+        }
+    }
+
+    return tmpMax
+}
