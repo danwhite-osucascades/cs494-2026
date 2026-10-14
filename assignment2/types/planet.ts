@@ -6,3 +6,7 @@ export type Planet = {
   period: number,
   temperature: number
 }
+
+export type DataStringProperties = "name"
+
+export type DataNumberProperties = "mass" | "radius" | "distance_light_year" | "period" | "temperature"

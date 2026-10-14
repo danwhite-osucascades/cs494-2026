@@ -5,7 +5,7 @@ import DataTableBody from "./dataTableBody";
 import DataTableHead from "./dataTableHead";
 import { Planet } from "@/types/planet";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function DataTable(props: { data: Planet[] }) {
 

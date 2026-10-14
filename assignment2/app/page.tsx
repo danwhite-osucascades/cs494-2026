@@ -5,7 +5,7 @@ import DataTable from "@/components/dataTable"
 
 export default async function Home() {
 
-  const url = "https://api.api-ninjas.com/v1/planets?max_distance_light_year=1"
+  const url = "https://api.api-ninjas.com/v1/planets?max_distance_light_year=11"
   const response = await fetch(url, {headers: {'X-Api-Key' : process.env.API_NINJA_KEY ?? "" }})
   const data: Planet[] = await response.json()
 
