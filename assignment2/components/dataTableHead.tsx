@@ -22,7 +22,6 @@ export default function DataTableHead(props: { data: Planet[], setData: (data: P
         setAscending(!ascending)
     }
 
-
     return (
         <TableHead>
             <StyledTableHeadRow>

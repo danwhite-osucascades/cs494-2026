@@ -15,14 +15,16 @@ export function sortObjectArrayByString(property: DataStringProperties, data: Pl
     return tmpObj
 }
 
-
-
 export function sortObjectArrayByNumber(property: DataNumberProperties, data: Planet[], ascending: boolean): Planet[] {
     const tmpObj = JSON.parse(JSON.stringify(data))
 
     const ascVal = ascending ? 1 : -1
-    tmpObj.sort((a: Planet, b: Planet) => ascVal * (a[property] - b[property]));
+    tmpObj.sort((a: Planet, b: Planet) => ascVal * (a[property] - b[property]))
 
     return tmpObj
 
+}
+
+export function filterObjectArrayByMinMax(property: DataNumberProperties, data: Planet[], min: number, max: number){
+    return data.filter((planet)=>planet[property] >= min && planet[property] <= max)
 }
