@@ -14,21 +14,22 @@ export default function DataTable(props: { data: Planet[] }) {
 
     const [data, setData] = useState<Planet[]>(props.data)
     const [filteredData, setFilteredData] = useState<Planet[]>(props.data)
+
     const [min, setMin] = useState<string>("0")
+    const [max, setMax] = useState<string>("0")
 
     const filterLabels: DataNumberProperties[] = ["mass", "radius"]
-
     const [filterLabel, setFilterLabel] = useState<DataNumberProperties>(filterLabels[0])
-
-    const tmpMax = getMax(data.map((planet)=>planet[filterLabel]))
-
-    const [max, setMax] = useState<string>(String(tmpMax))
+    
 
     useEffect(()=>{
+        setFilteredData(filterObjectArrayByMinMax(filterLabel, data, parseFloat(min), parseFloat(max)))
+    },[min, max, data, filterLabel])
 
-        setFilteredData(filterObjectArrayByMinMax("mass", data, parseFloat(min), parseFloat(max)))
-
-    },[min, max, data])
+    useEffect(()=>{
+        setMin("0")
+        setMax(String(getMax(data.map((planet)=>planet[filterLabel]))))
+    }, [filterLabel])
 
 
     return (
@@ -52,7 +53,5 @@ export default function DataTable(props: { data: Planet[] }) {
                 </Table>
             </TableContainer>
         </Box>
-
-
     )
 }
