@@ -83,6 +83,7 @@ export default function Home() {
               src={selectedDog.imageLink}
               width={300}
               height={200}
+              loading="eager"
               sizes="(max-width: 400px) 100vw, 300px"
               style={{
                 width: '100%',
