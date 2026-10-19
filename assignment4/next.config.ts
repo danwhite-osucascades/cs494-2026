@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.api-ninjas.com",
+        pathname: "/**"
+      }
+    ]
+  },
   turbopack: {
     rules: {
       "*.css": {
