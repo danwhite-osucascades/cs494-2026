@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Websocket Example</title>
+        <script>
+            const ws = new WebSocket('ws://localhost:8081')
+
+            ws.onmessage = (event) => {
+                const messagesDiv = document.getElementById('messages')
+                const newMessageDiv = document.createElement('div')
+                newMessageDiv.textContent = event.data
+                messagesDiv.appendChild(newMessageDiv)
+            }
+
+            function sendMessage(){
+                const input = document.getElementById("message")
+                ws.send(input.value)
+                input.value = ""
+            }
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="message" placeholder="Type a message" />
+        <button onclick="sendMessage()">Send</button>
+        <div id="messages"></div>
+    </body>
+</html>
