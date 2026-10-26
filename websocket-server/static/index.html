@@ -13,14 +13,20 @@
             }
 
             function sendMessage(){
-                const input = document.getElementById("message")
-                ws.send(input.value)
-                input.value = ""
+                const userInput = document.getElementById("user")
+                const messageInput = document.getElementById("message")
+                const messageObj = {
+                    user: userInput.value,
+                    message: messageInput.value
+                }
+                ws.send(JSON.stringify(messageObj))
+                messageInput.value = ""
             }
 
         </script>
     </head>
     <body>
+        <input type="text" id="user" placeholder="Type a user name" />
         <input type="text" id="message" placeholder="Type a message" />
         <button onclick="sendMessage()">Send</button>
         <div id="messages"></div>

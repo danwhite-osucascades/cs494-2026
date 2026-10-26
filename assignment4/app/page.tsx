@@ -3,12 +3,14 @@
 import { Dog } from "@/types/dog";
 import { useState, useEffect } from "react";
 
-import { Select, MenuItem, Box } from "@mui/material";
+import { Select, MenuItem, Box, Autocomplete, TextField } from "@mui/material";
 import Image from "next/image";
 
 export default function Home() {
 
   const [dogs, setDogs] = useState<Dog[]>([])
+
+  const [dogNames, setDogNames] = useState<string[]>([])
 
   const [selectedDogName, setSelectedDogName] = useState<string | undefined>(undefined)
 
@@ -24,6 +26,7 @@ export default function Home() {
   useEffect(() => {
     if (dogs.length > 0) {
       setSelectedDogName(dogs[0].name)
+      setDogNames(dogs.map((dog) => dog.name))
     }
   }, [dogs])
 
@@ -49,21 +52,14 @@ export default function Home() {
       >
         {selectedDogName && (
           <Box sx={{ width: '100%', maxWidth: 360 }}>
-            <Select
-              fullWidth
-              value={selectedDogName}
-              onChange={(e) => setSelectedDogName(e.target.value)}
-              sx={{
-                borderRadius: 2,
-                bgcolor: 'background.paper',
+            <Autocomplete
+              options={dogNames}
+              sx={{ width: 300 }}
+              onChange={(_event, newValue) => {
+                setSelectedDogName(newValue ?? " ");
               }}
-            >
-              {dogs.map((dog) => (
-                <MenuItem value={dog.name} key={dog.name}>
-                  {dog.name}
-                </MenuItem>
-              ))}
-            </Select>
+              renderInput={(params) => <TextField {...params} label="Dogs" />}
+            />
           </Box>
         )}
 
