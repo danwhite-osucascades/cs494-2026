@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
 
     const data = await getAlbumInfo(album, artist)
 
-    return Response.json({ data: data })
+    return Response.json({ album: data })
 
 }
 
